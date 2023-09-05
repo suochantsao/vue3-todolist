@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,SAAS,CAAT,IAAS,CACT,SAAS,CAAT,UAAS,CACT,SAAS,CAAT,SAAS,CAET,AAAA,CAAC,AAAA,MAAM,AAAC,CACN,OAAO,CAAE,IAAI,CACd",
+    "sources": [
+        "../src/assets/scss/main.scss"
+    ],
+    "names": [],
+    "file": "main.min.css"
+}
