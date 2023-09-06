@@ -6,9 +6,10 @@
       <li
         v-for="(item, index) in list"
         :key="index"
+        :class="item.selected ? 'bg-pink-300' : 'bg-gray-400'"
         class="w-1/3 text-center hover:bg-pink-300 cursor-pointer rounded-t-lg py-3"
       >
-        {{ item }}
+        {{ item.name }}
       </li>
     </ul>
   </div>
@@ -22,7 +23,5 @@ import { Options, Vue } from "vue-class-component";
     list: Array,
   },
 })
-export default class FilterTab extends Vue {
-  msg!: string;
-}
+export default class FilterTab extends Vue {}
 </script>
