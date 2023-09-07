@@ -33,13 +33,7 @@
         :key="item.id"
       >
         <li class="flex">
-          <input
-            type="checkbox"
-            name=""
-            id=""
-            class="mx-6"
-            @click="ChangeStatus(item.id)"
-          />
+          <input type="checkbox" class="mx-6" @click="ChangeStatus(item.id)" />
           <input
             type="text"
             :class="item.completed ? 'line-through' : ''"
@@ -61,7 +55,10 @@
     >
       <li>{{ todoLeft }} left</li>
       <li>
-        <button class="hover:text-pink-300 font-medium" @click="leftItemCount">
+        <button
+          class="hover:text-pink-300 font-medium"
+          @click="RemoveCompleteTodo"
+        >
           Clear Completed
         </button>
       </li>
@@ -107,6 +104,13 @@ export default defineComponent({
       todoList.value = newTodoList;
     };
 
+    const RemoveCompleteTodo = () => {
+      const newTodoList = todoList.value.filter((item) => {
+        return item.completed !== true;
+      });
+      todoList.value = newTodoList;
+    };
+
     const ChangeStatus = (value: number) => {
       const selectTodo = todoList.value.find((item) => {
         return item.id === value;
@@ -114,7 +118,6 @@ export default defineComponent({
       if (selectTodo) {
         selectTodo.completed = !selectTodo.completed;
       }
-      console.log(selectTodo);
     };
 
     const LeftItemCount = () => {
@@ -139,6 +142,7 @@ export default defineComponent({
       todoLeft,
       AddNewTodo,
       RemoveTodo,
+      RemoveCompleteTodo,
       ChangeStatus,
       LeftItemCount,
     };

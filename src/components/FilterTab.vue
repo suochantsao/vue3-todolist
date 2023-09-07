@@ -8,6 +8,7 @@
         :key="index"
         :class="item.selected ? 'bg-pink-300' : 'bg-gray-400'"
         class="w-1/3 text-center hover:bg-pink-300 cursor-pointer rounded-t-lg py-3"
+        @click="console.log(item)"
       >
         {{ item.name }}
       </li>
@@ -16,12 +17,14 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+import { defineComponent, ref } from "vue";
 
-@Options({
+export default defineComponent({
   props: {
     list: Array,
   },
-})
-export default class FilterTab extends Vue {}
+  setup() {
+    const currentTab = ref<string>("");
+  },
+});
 </script>
